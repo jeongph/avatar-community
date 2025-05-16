@@ -11,7 +11,7 @@ public class UserController {
 
     @GetMapping("/auth/me") // XXX: Why auth prefix?
     public User getMe() {
-        return new User("1");
+        return null;//new User("1");
     }
 
 }
