@@ -1,0 +1,4 @@
+jwt:
+  secret: "H+45KLCBHz2hof1Djj+0Kp3Jv3RaZ+nMNvgD/PI36HKtYPFLK7i7fObBNAIiMhwY8+TY0qnmsCrhbQ/m58vXiw=="
+  expiration: 24
+
