@@ -21,7 +21,7 @@ public class PostController {
                 new Post(
                         1L,
                         1L,
-                        "게시글 제목 1",
+                        "게시글 제목 111111111111",
                         "게시글 내용 1",
                         LocalDateTime.now(),
                         author,
