@@ -2,3 +2,13 @@
 #  secret: "H+45KLCBHz2hof1Djj+0Kp3Jv3RaZ+nMNvgD/PI36HKtYPFLK7i7fObBNAIiMhwY8+TY0qnmsCrhbQ/m58vXiw=="
 #  expiration: 24
 
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/avatar
+    username: uFjaedNW
+    password: oe5n?<@6.kI660&>(
+  jpa:
+    hibernate.ddl-auto: create-drop
+#    hibernate.ddl-auto: update
+    show-sql: true # SQL ??? ??? ??
+    properties.hibernate.format_sql: true # SQL ?? ???
