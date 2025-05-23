@@ -1,52 +1,35 @@
 package me.jeonguk.avatar_community.controller;
 
 import lombok.RequiredArgsConstructor;
-import me.jeonguk.avatar_community.api.Post;
-import me.jeonguk.avatar_community.api.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.time.LocalDateTime;
-import java.util.List;
+import me.jeonguk.avatar_community.api.PostCreateReq;
+import me.jeonguk.avatar_community.api.PostListRes;
+import me.jeonguk.avatar_community.service.PostService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 public class PostController {
 
-    @GetMapping("/posts")
-    public List<Post> pagePosts() {
-        User author = new User("1");
+    private final PostService postService;
 
-        return List.of(
-                new Post(
-                        1L,
-                        1L,
-                        "게시글 제목 111111111111",
-                        "게시글 내용 1",
-                        LocalDateTime.now(),
-                        author,
-                        List.of(),
-                        1L,
-                        false,
-                        1L,
-                        1L,
-                        1L
-                ),
-                new Post(
-                        2L,
-                        2L,
-                        "게시글 제목 2",
-                        "게시글 내용 2",
-                        LocalDateTime.now(),
-                        author,
-                        List.of(),
-                        0L,
-                        false,
-                        2L,
-                        2L,
-                        2L
-                )
-        );
+    @PostMapping("/posts")
+    public ResponseEntity<String> createPost(
+            @RequestBody PostCreateReq req
+    ) {
+        postService.createPost(req);
+
+        return ResponseEntity.ok("OK");
+    }
+
+    @GetMapping("/posts")
+    public ResponseEntity<PostListRes> pagePosts(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        PostListRes postList = postService.pagePosts(page, size);
+
+        return ResponseEntity.ok(postList);
     }
 
 }

@@ -1,14 +1,18 @@
 package me.jeonguk.avatar_community.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 public record Post(
-        Long id,
-        Long userId,
+        @JsonProperty("id")
+        Long postId,
         String title,
         String description,
         LocalDateTime createdAt,
+
+        Long userId,
         User author,
         List<ImageUri> imageUris,
         Long likes,
@@ -20,12 +24,12 @@ public record Post(
 //        List<PostComment> comments
 ) {
 
-    public Object getVotes() {
-        return null;
+    public List<Object> getVotes() {
+        return List.of();
     }
 
-    public Object getComments() {
-        return null;
+    public List<Object> getComments() {
+        return List.of();
     }
 
 }
