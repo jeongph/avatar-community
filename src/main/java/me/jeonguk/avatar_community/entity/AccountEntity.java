@@ -2,12 +2,14 @@ package me.jeonguk.avatar_community.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Entity(name = "accounts")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Getter
 public class AccountEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
