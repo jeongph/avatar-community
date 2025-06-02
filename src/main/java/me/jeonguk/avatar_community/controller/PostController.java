@@ -2,8 +2,9 @@ package me.jeonguk.avatar_community.controller;
 
 import lombok.RequiredArgsConstructor;
 import me.jeonguk.avatar_community.api.PostCreateReq;
-import me.jeonguk.avatar_community.api.PostListRes;
+import me.jeonguk.avatar_community.api.PostRes;
 import me.jeonguk.avatar_community.service.PostService;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,13 +24,13 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-    public ResponseEntity<PostListRes> pagePosts(
+    public ResponseEntity<Page<PostRes>> pagePosts(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
-        PostListRes postList = postService.pagePosts(page, size);
+        var data = postService.pagePosts(page, size);
 
-        return ResponseEntity.ok(postList);
+        return ResponseEntity.ok(data);
     }
 
 }

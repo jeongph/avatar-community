@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public record Post(
+public record PostRes(
         @JsonProperty("id")
         Long postId,
         String title,
