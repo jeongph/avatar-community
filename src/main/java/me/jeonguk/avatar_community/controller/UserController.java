@@ -12,7 +12,7 @@ public class UserController {
     @GetMapping("/auth/me") // XXX: Why auth prefix?
     public User getMe() {
 //        return null;
-        return new User("1");
+        return new User(1L, "테스트");
     }
 
 }

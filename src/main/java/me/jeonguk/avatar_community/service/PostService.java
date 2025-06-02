@@ -38,7 +38,7 @@ public class PostService {
                         post.getDescription(),
                         post.getCreatedAt(),
                         1L,
-                        new User("1"),
+                        new User(1L, "테스트"),
                         List.of(),
                         0L,
                         false,
