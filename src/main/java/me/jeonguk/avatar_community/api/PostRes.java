@@ -15,7 +15,7 @@ public record PostRes(
         Long userId,
         User author,
         List<ImageUri> imageUris,
-        Long likes,
+        List<Long> likes,
         boolean hasVote,
         Long voteCount,
         Long commentCount,
