@@ -31,20 +31,21 @@ public class PostService {
 
     public Page<PostRes> pagePosts(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return postRepository.findAll(pageable)
-                .map(post -> new PostRes(
-                        post.getId(),
-                        post.getTitle(),
-                        post.getDescription(),
-                        post.getCreatedAt(),
-                        1L,
-                        new User(1L, "테스트"),
-                        List.of(),
-                        0L,
-                        false,
-                        0L,
-                        0L,
-                        0L
-                ));
+        Page<PostEntity> all = postRepository.findAll(pageable);
+
+        return all.map(post -> new PostRes(
+                post.getId(),
+                post.getTitle(),
+                post.getDescription(),
+                post.getCreatedAt(),
+                1L,
+                new User(1L, "테스트"),
+                List.of(),
+                List.of(1L),
+                false,
+                0L,
+                0L,
+                0L
+        ));
     }
 }
